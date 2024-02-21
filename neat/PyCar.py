@@ -185,17 +185,12 @@ def run_car(genomes, config):
 
 if __name__ == "__main__":
     # Set configuration file
-    config_path = "./config-feedforward.txt"
+    config_path = "neat\config-feedforward.txt"
     config = neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction,
                                 neat.DefaultSpeciesSet, neat.DefaultStagnation, config_path)
 
     # Create core evolution algorithm class
     p = neat.Population(config)
-
-    # Add reporter for fancy statistical result
-    p.add_reporter(neat.StdOutReporter(True))
-    stats = neat.StatisticsReporter()
-    p.add_reporter(stats)
-
+    
     # Run NEAT
     p.run(run_car, 1000)
